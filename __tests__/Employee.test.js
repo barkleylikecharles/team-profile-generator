@@ -26,3 +26,9 @@ test("Can add a email address to employee object.", () => {
     const employee = new Employee("Verona", 13, email);
     expect(employee.email).toBe(email);
 });
+// Begin testing methods
+test("Gets name through getName method.", () => {
+    const testName = "Verona"
+    const employee = new Employee(testName);
+    expect(employee.getName()).toBe(testName);
+});
