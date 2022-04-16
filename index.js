@@ -46,6 +46,15 @@ function addManager() {
             name: "officeNumber"
         }
     ])
+    .then(function (data) {
+        const name = data.name
+        const id = data.id
+        const email = data.email
+        const officeNumber = data.officeNumber
+        const teamMember = new Manager (name, id, email, officeNumber)
+        teamArr.push(teamMember)
+        addMembers();
+    });
 }
 // Add other employees under manager and give and option to choose which type of employee
 function addMembers() {
@@ -58,15 +67,48 @@ function addMembers() {
         }
     ])
     .then(function(data) {
-        switch (data.addMemberInfo) {
+        switch (data.addMembers) {
             case "Yes - Engineer":
                 addEngineer();
 
             case "Yes - Intern":
                 addIntern();
+
+            // case "No, my team is complete";
+            //     //createTeam()
         }
     });
-}
+    function addEngineer() {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What is the engineer's name?",
+                name: "name"
+            },
+            {
+                type: "number",
+                message: "What is the engineer's employee id#?",
+                name: "id"
+            },
+            {
+                type: "input",
+                message: "What is the manager's email address?",
+                name: "email"
+            },
+            {
+                type: "input",
+                message: "What is the engineer's github username?",
+                name: "github"
+            },
+        ])
+        .then(function(data) {
+            const name = data.name
+            const id = data.id
+            const email = data.email
+            const github = data.github
+            });
+        }
+startApp();
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 // WHEN I enter the team manager’s name, employee ID, email address, and office number
@@ -89,4 +131,4 @@ function addMembers() {
 //       // Prompt couldn't be rendered in the current environment
 //     } else {
 //       // Something else went wrong
-//     
+}}
