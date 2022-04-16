@@ -1,5 +1,72 @@
 //Inquirer
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require("path");
+
+const Employee = require("./lib/Employee")
+const Manager = require("./lib/Manager")
+const Engineer = require("./lib/Engineer")
+const Intern = require("./lib/Intern")
+
+let teamArr = [];
+//Start application and request team name.
+function startApp () {
+    inquirer.prompt([
+        {
+            message: "Please enter your team name to begin building your profile.",
+            name: "teamname"
+        }
+    ])
+    .then(function(data) {
+        const teamName = data.teamName
+        teamArr.push(teamname)
+        addManager;
+    })
+// Begin by adding manager to team array
+function addManager() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is the name of the team's manager?",
+            name: "name"
+        },
+        {
+            type: "input",
+            message: "What is the manager's employee id#?",
+            name: "id"
+        },
+        {
+            type: "input",
+            message: "What is the manager's email address?",
+            name: "email"
+        },
+        {
+            type: "number",
+            message: "What is the manager's office phone number?",
+            name: "officeNumber"
+        }
+    ])
+}
+// Add other employees under manager and give and option to choose which type of employee
+function addMembers() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Would you like to add more team members?",
+            choices: ["Yes - Engineer", "Yes -  Intern", "No, my team in complete"],
+            name: "addMembersInfo"
+        }
+    ])
+    .then(function(data) {
+        switch (data.addMemberInfo) {
+            case "Yes - Engineer":
+                addEngineer();
+
+            case "Yes - Intern":
+                addIntern();
+        }
+    });
+}
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 // WHEN I enter the team manager’s name, employee ID, email address, and office number
@@ -10,17 +77,16 @@ var inquirer = require('inquirer');
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
-inquirer
-  .prompt([
-    /* Pass your questions in here */
-  ])
-  .then((answers) => {
-    // Use user feedback for... whatever!!
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
+// inquirer
+//   .prompt([
+//     /* Pass your questions in here */
+//   ])
+//   .then((answers) => {
+//     // Use user feedback for... whatever!!
+//   })
+//   .catch((error) => {
+//     if (error.isTtyError) {
+//       // Prompt couldn't be rendered in the current environment
+//     } else {
+//       // Something else went wrong
+//     
