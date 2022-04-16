@@ -1,3 +1,5 @@
+
+const generateHtml = require("./utils/generateHtml")
 //Inquirer
 const inquirer = require('inquirer');
 const fs = require('fs');
@@ -65,7 +67,7 @@ function addMembers() {
         {
             type: "list",
             message: "Would you like to add more team members?",
-            choices: ["Yes - Engineer", "Yes -  Intern", "No, my team in complete"],
+            choices: ["Yes - Engineer", "Yes - Intern", "No, my team in complete"],
             name: "addMembers"
         }
     ])
@@ -73,12 +75,17 @@ function addMembers() {
         switch (data.addMembers) {
             case "Yes - Engineer":
                 addEngineer();
+                break;
 
             case "Yes - Intern":
                 addIntern();
+                break;
 
-            // case "No, my team is complete";
-            //     //createTeam()
+            case "No, my team is complete":
+                createTeam();
+                break;
+
+            default: addMembers();
         }
     });
 };
@@ -145,8 +152,48 @@ function addIntern() {
                 const school = data.school
                 addMembers();
                 });
+            
         };
-    
+function createTeam() {
+    inquirer.prompt ([
+        {
+        type: 'confirm',
+        name: 'confirmCreateHtml',
+        message: 'Would you like to generate the Team HTML',
+        default: true,
+      }
+    ]);
+    };
+    // TODO: Create a function to write README file
+
+function writeToFile(fileName, data) {}
+const writeFile = data => {
+    fs.writeFile('generateHtml.html', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the README has been created 
+        } else {
+            console.log("Your HTML has been successfully created!")
+        }
+    })
+}
+//Function to initalize app
+// startApp()
+// //Get user answers
+// .then(answers => {
+//     return generateHtml(answers);
+// })
+// // Display data 
+// .then(data => {
+//     return writeFile(data);
+// })
+// // Catch errors
+// .catch(err => {
+//     console.log(err)
+// })
+
         
 startApp();
 // WHEN I start the application
@@ -159,16 +206,5 @@ startApp();
 // THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 // WHEN I decide to finish building my team
 // THEN I exit the application, and the HTML is generated
-// inquirer
-//   .prompt([
-//     /* Pass your questions in here */
-//   ])
-//   .then((answers) => {
-//     // Use user feedback for... whatever!!
-//   })
-//   .catch((error) => {
-//     if (error.isTtyError) {
-//       // Prompt couldn't be rendered in the current environment
-//     } else {
-//       // Something else went wrong
+
         
