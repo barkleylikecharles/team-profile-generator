@@ -13,15 +13,18 @@ let teamArr = [];
 function startApp () {
     inquirer.prompt([
         {
+            type: "input",
             message: "Please enter your team name to begin building your profile.",
-            name: "teamname"
+            name: "teamName"
         }
     ])
     .then(function(data) {
         const teamName = data.teamName
-        teamArr.push(teamname)
+        teamArr.push(teamName)
         addManager;
+    
     })
+
 // Begin by adding manager to team array
 function addManager() {
     inquirer.prompt([
@@ -31,7 +34,7 @@ function addManager() {
             name: "name"
         },
         {
-            type: "input",
+            type: "number",
             message: "What is the manager's employee id#?",
             name: "id"
         },
@@ -41,7 +44,7 @@ function addManager() {
             name: "email"
         },
         {
-            type: "number",
+            type: "input",
             message: "What is the manager's office phone number?",
             name: "officeNumber"
         }
@@ -78,8 +81,9 @@ function addMembers() {
             //     //createTeam()
         }
     });
-    function addEngineer() {
-        inquirer.prompt([
+};
+function addEngineer() {
+    inquirer.prompt([
             {
                 type: "input",
                 message: "What is the engineer's name?",
@@ -100,7 +104,7 @@ function addMembers() {
                 message: "What is the engineer's github username?",
                 name: "github"
             },
-        ])
+    ])
         .then(function(data) {
             const name = data.name
             const id = data.id
@@ -109,6 +113,7 @@ function addMembers() {
             addMembers();
             });
         }
+    };
     function addIntern() {
             inquirer.prompt([
                 {
@@ -139,7 +144,9 @@ function addMembers() {
                 const school = data.school
                 addMembers();
                 });
-            }
+        };
+    
+        
 startApp();
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -163,4 +170,4 @@ startApp();
 //       // Prompt couldn't be rendered in the current environment
 //     } else {
 //       // Something else went wrong
-        }}
+        
