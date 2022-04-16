@@ -21,7 +21,7 @@ function startApp () {
     .then(function(data) {
         const teamName = data.teamName
         teamArr.push(teamName)
-        addManager;
+        addManager();
     
     })
 
@@ -114,7 +114,8 @@ function addEngineer() {
             });
         }
     };
-    function addIntern() {
+
+function addIntern() {
             inquirer.prompt([
                 {
                     type: "input",
