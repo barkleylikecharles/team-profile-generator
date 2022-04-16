@@ -63,7 +63,7 @@ function addMembers() {
             type: "list",
             message: "Would you like to add more team members?",
             choices: ["Yes - Engineer", "Yes -  Intern", "No, my team in complete"],
-            name: "addMembersInfo"
+            name: "addMembers"
         }
     ])
     .then(function(data) {
@@ -106,8 +106,40 @@ function addMembers() {
             const id = data.id
             const email = data.email
             const github = data.github
+            addMembers();
             });
         }
+    function addIntern() {
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: "What is the intern's name?",
+                    name: "name"
+                },
+                {
+                    type: "number",
+                    message: "What is the intern's employee id#?",
+                    name: "id"
+                },
+                {
+                    type: "input",
+                    message: "What is the intern's email address?",
+                    name: "email"
+                },
+                {
+                    type: "input",
+                    message: "Where does the intern go to school?",
+                    name: "school"
+                },
+            ])
+            .then(function(data) {
+                const name = data.name
+                const id = data.id
+                const email = data.email
+                const school = data.school
+                addMembers();
+                });
+            }
 startApp();
 // WHEN I start the application
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
@@ -131,4 +163,4 @@ startApp();
 //       // Prompt couldn't be rendered in the current environment
 //     } else {
 //       // Something else went wrong
-}}
+        }}
