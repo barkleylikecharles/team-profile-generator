@@ -11,6 +11,7 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 
 let teamArr = [];
+let teamTitle = [];
 //Start application and request team name.
 function startApp () {
     inquirer.prompt([
@@ -22,7 +23,7 @@ function startApp () {
     ])
     .then(function(data) {
         const teamName = data.teamName
-        teamArr.push(teamName)
+        teamTitle.push(teamName)
         addManager();
     
     })
@@ -112,7 +113,7 @@ function addEngineer() {
                 type: "input",
                 message: "What is the engineer's github username?",
                 name: "github"
-            },
+            }
     ])
         .then(function(data) {
             const name = data.name
@@ -120,6 +121,8 @@ function addEngineer() {
             const email = data.email
             const github = data.github
             const role = "Engineer"
+            const teamMember = new Engineer (name, id, email, github)
+            teamArr.push(teamMember);
             addMembers();
             })
         }
@@ -147,7 +150,7 @@ function addIntern() {
                     type: "input",
                     message: "Where does the intern go to school?",
                     name: "school"
-                },
+                }
             ])
             .then(function(data) {
                 const name = data.name
@@ -155,6 +158,8 @@ function addIntern() {
                 const email = data.email
                 const school = data.school
                 const role = "Intern"
+                const teamMember = new Intern (name, id, email, school)
+                teamArr.push(teamMember)
                 addMembers();
                 });
             
@@ -165,20 +170,27 @@ function createTeam() {
         type: 'confirm',
         name: 'confirmCreateHtml',
         message: 'Would you like to generate the Team HTML',
-        default: true,
       }
-    ]);
+    ])
+      .then (userAnswer => {
+          if (userAnswer.confirmCreateHtml == true) {
+              writeToFile();
+          }
+          else {
+              addMembers();
+          }
+      })
     };
     // TODO: Create a function to write html file
 
-function writeToFile(fileName, data) {}
-const writeFile = data => {
-    fs.writeFile('generateHtml.html', data, err => {
+function writeToFile() {
+
+    fs.writeFile('generateHtml.html', generateHtml(teamArr, teamTitle), err => {
         // if there is an error 
         if (err) {
             console.log(err);
             return;
-        // when the README has been created 
+        // when the HTML has been created 
         } else {
             console.log("Your HTML has been successfully created!")
         }
