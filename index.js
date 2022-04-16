@@ -26,6 +26,7 @@ function startApp () {
         addManager();
     
     })
+};
 
 // Begin by adding manager to team array
 function addManager() {
@@ -49,7 +50,7 @@ function addManager() {
             type: "input",
             message: "What is the manager's office phone number?",
             name: "officeNumber"
-        }
+        },
     ])
     .then(function (data) {
         const name = data.name
@@ -67,11 +68,12 @@ function addMembers() {
         {
             type: "list",
             message: "Would you like to add more team members?",
-            choices: ["Yes - Engineer", "Yes - Intern", "No, my team in complete"],
+            choices: ["Yes - Engineer", "Yes - Intern", "No, my team is complete"],
             name: "addMembers"
         }
     ])
     .then(function(data) {
+        const role = "Manager"
         switch (data.addMembers) {
             case "Yes - Engineer":
                 addEngineer();
@@ -117,10 +119,12 @@ function addEngineer() {
             const id = data.id
             const email = data.email
             const github = data.github
+            const role = "Engineer"
             addMembers();
-            });
+            })
         }
-    };
+
+
 
 function addIntern() {
             inquirer.prompt([
@@ -150,6 +154,7 @@ function addIntern() {
                 const id = data.id
                 const email = data.email
                 const school = data.school
+                const role = "Intern"
                 addMembers();
                 });
             
@@ -164,7 +169,7 @@ function createTeam() {
       }
     ]);
     };
-    // TODO: Create a function to write README file
+    // TODO: Create a function to write html file
 
 function writeToFile(fileName, data) {}
 const writeFile = data => {

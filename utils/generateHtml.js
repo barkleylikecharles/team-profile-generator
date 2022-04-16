@@ -14,11 +14,27 @@ function generateHtml(data) {
 </head>
 
 <body>
-    <header class = "hero"
+    <header class = "hero">
         <h1>${teamArr[0]}</h1>
     <div class="card-container">
+    </header>
+
+    <div class="member-card">
+        <div class= "card-header">
+        <h2>$teamArr[].name}</h2>
+        <h2>$teamArr[].role}</h2>
+        </div>
+        <div class= "card-body">
+        <h3>$teamArr[].id}</h3>
+        <h3>$teamArr[].email}</h3>
+        <h3>$teamArr[].officeNumber}</h3>
+        <h3>$teamArr[].github}</h3>
+        <h3>$teamArr[].school}</h3>
+        </div>
+
+
     `
-    htmlArray.push();
+    ;
 
     
   
