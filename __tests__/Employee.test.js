@@ -34,8 +34,8 @@ test("Gets name through getName method.", () => {
     expect(employee.getName()).toBe(testName);
 });
 
-// test("Gets name through getId method.", () => {
-//     const testId = 13;
-//     const employee = new Employee("Verona, 13");
-//     expect(employee.getId()).toBe(testId);
-// });
+test("Gets id through getId method.", () => {
+    const testId = 13;
+    const employee = new Employee("Verona", 13);
+    expect(employee.getId()).toBe(testId);
+});
