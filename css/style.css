@@ -12,13 +12,14 @@
     padding-right: 5px;
 }
 
-/* .member-card {
+.member-card { 
+    padding:5px;
     /* display: flex;
     text-align: center;
     justify-content: center; */
-    /* padding: 1px;
-    color: white;
-    float: left;
+    /* /* padding: 1px; */
+    /* color: white;
+    float: left; */
     margin: 10px;
     border: 1px solid lightgray;
 } */ */
