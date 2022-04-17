@@ -12,16 +12,16 @@
     padding-right: 5px;
 }
 
-.member-card {
-    display: flex;
+/* .member-card {
+    /* display: flex;
     text-align: center;
-    justify-content: center;
-    padding: 1px;
+    justify-content: center; */
+    /* padding: 1px;
     color: white;
     float: left;
     margin: 10px;
     border: 1px solid lightgray;
-}
+} */ */
 .card-header{
     background-color:lightseagreen;
     text-align: center;

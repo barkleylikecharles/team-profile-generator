@@ -10,7 +10,7 @@ function generateHtml(data, title) {
         </div>
         <div class="card-body">
             <h4>ID: ${manager.getId()}</h4>
-            <h4>Email: ${manager.getEmail()}</h4>
+            <h4>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></h4>
             <h4>Office Phone: ${manager.getofficeNumber()}</h4>
         </div>
         </div>
@@ -27,8 +27,8 @@ function generateHtml(data, title) {
         </div>
         <div class="card-body">
             <h4>ID: ${engineer.getId()}</h4>
-            <h4>Email: ${engineer.getEmail()}</h4>
-            <h4>GitHub Profile: ${engineer.getGithub()}</h4>
+            <h4>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></h4>
+            <h4>GitHub Profile <a href="www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></h4>
            </div>
         </div>
     </div>
@@ -39,13 +39,13 @@ function createIntern(intern){
     return `
     <div class ="col-4">
     <div class="member-card">
-    <div class="card-header">
+    <div class="card-header text-center">
         <h2>${intern.getName()}</h2>
         <h2>${intern.getRole()}</h2>
     </div>
     <div class="card-body">
         <h4>ID: ${intern.getId()}</h4>
-        <h4> Email: ${intern.getEmail()}</h4>
+        <h4>Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></h4>
         <h4>School: ${intern.getSchool()}</h4>
        </div>
     </div>
