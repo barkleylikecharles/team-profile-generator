@@ -2,32 +2,34 @@
 function generateHtml(data, title) {
     function createManager(manager) {
         return `
+    <div class ="col-4">
         <div class="member-card">
         <div class="card-header">
             <h2>${manager.getName()}</h2>
             <h2>${manager.getRole()}</h2>
         </div>
         <div class="card-body">
-            <h3>ID: ${manager.getId()}</h3>
-            <h3>Email: ${manager.getEmail()}</h3>
-            <h3>Office Phone: ${manager.getofficeNumber()}</h3>
-           
+            <h4>ID: ${manager.getId()}</h4>
+            <h4>Email: ${manager.getEmail()}</h4>
+            <h4>Office Phone: ${manager.getofficeNumber()}</h4>
+        </div>
         </div>
     </div>
         `
     }
     function createEngineer(engineer){
         return `
+        <div class ="col-4">
         <div class="member-card">
         <div class="card-header">
             <h2>${engineer.getName()}</h2>
             <h2>${engineer.getRole()}</h2>
         </div>
         <div class="card-body">
-            <h3>ID: ${engineer.getId()}</h3>
-            <h3>Email: ${engineer.getEmail()}</h3>
-            <h3>Office Phone: ${engineer.getGithub()}</h3>
-           
+            <h4>ID: ${engineer.getId()}</h4>
+            <h4>Email: ${engineer.getEmail()}</h4>
+            <h4>GitHub Profile: ${engineer.getGithub()}</h4>
+           </div>
         </div>
     </div>
         `
@@ -35,16 +37,17 @@ function generateHtml(data, title) {
 }
 function createIntern(intern){
     return `
+    <div class ="col-4">
     <div class="member-card">
     <div class="card-header">
         <h2>${intern.getName()}</h2>
         <h2>${intern.getRole()}</h2>
     </div>
     <div class="card-body">
-        <h3>ID: ${intern.getId()}</h3>
-        <h3>Email: ${intern.getEmail()}</h3>
-        <h3>Office Phone: ${intern.getSchool()}</h3>
-       
+        <h4>ID: ${intern.getId()}</h4>
+        <h4> Email: ${intern.getEmail()}</h4>
+        <h4>School: ${intern.getSchool()}</h4>
+       </div>
     </div>
 </div>
     `
@@ -67,7 +70,8 @@ function createIntern(intern){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>${title[0]}</title>
-    <link href="" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/style.css" rel="stylesheet">
     <style>
 
     </style>
@@ -75,11 +79,11 @@ function createIntern(intern){
 
 <body>
     <header class="hero">
-        <h1>${title[0]}</h1>
+        <h1>Team ${title[0]}</h1>
         <div class="card-container">
     </header>
 
-    <div class="column">
+    <div class="container">
         <div class="row">
        ${generateHtml(data)}
             

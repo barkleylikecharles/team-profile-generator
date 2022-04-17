@@ -106,7 +106,7 @@ function addEngineer() {
             },
             {
                 type: "input",
-                message: "What is the manager's email address?",
+                message: "What is the engineer's email address?",
                 name: "email"
             },
             {
