@@ -1,7 +1,5 @@
-# team-profile-generator
-# Professional README Generator
-
-[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
+# Professional Team Profile Generator
+Compile and display information for your whole team.  Take note of the name, role, email and id of each employee; with additional information depending on role. Engineers will display github profile information; while Interns will note their school.  Managers will have an office number attached.
 
 ## Installation
 npm init
@@ -13,17 +11,15 @@ Run the following command using inquirer at the root of your project and answer 
 
 node index.js
 
-<iframe src="https://drive.google.com/file/d/19iBOgRg-St_l-HOmxES8HoWZiDsQgawM/preview" width="640" height="480"></iframe>
+<iframe src="https://drive.google.com/file/d/1nr9y2pKVYOV8Y1UVjkp-Csu2V_Xxaftx/preview" width="640" height="480"></iframe>
 
-Or view here on Screencastify https://drive.google.com/file/d/19iBOgRg-St_l-HOmxES8HoWZiDsQgawM/view
+Or view here on YouTube https://youtu.be/_CDfDvbkmMI
 
 ## Credits
 Project Completed by Nicole Barkley. [GitHub Profile] (https://github.com/barkleylikecharles)
 
-Starter code for project cloned from https://github.com/coding-boot-camp/super-disco
-
-## Website
-
+## Tutorial
+Screencastify Video Link https://youtu.be/_CDfDvbkmMI
 
 ## License
 MIT License

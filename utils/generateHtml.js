@@ -4,7 +4,7 @@ function generateHtml(data, title) {
         return `
     <div class ="col-4">
         <div class="member-card">
-        <div class="card-header">
+        <div class="card-header text-center">
             <h2>${manager.getName()}</h2>
             <h2>${manager.getRole()}</h2>
         </div>
@@ -21,14 +21,14 @@ function generateHtml(data, title) {
         return `
         <div class ="col-4">
         <div class="member-card">
-        <div class="card-header">
+        <div class="card-header text-center">
             <h2>${engineer.getName()}</h2>
             <h2>${engineer.getRole()}</h2>
         </div>
         <div class="card-body">
             <h4>ID: ${engineer.getId()}</h4>
             <h4>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></h4>
-            <h4>GitHub Profile <a href="www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></h4>
+            <h4>GitHub Profile <a href="https://www.github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></h4>
            </div>
         </div>
     </div>
