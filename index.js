@@ -196,21 +196,6 @@ function writeToFile() {
         }
     })
 }
-//Function to initalize app
-// startApp()
-// //Get user answers
-// .then(answers => {
-//     return generateHtml(answers);
-// })
-// // Display data 
-// .then(data => {
-//     return writeFile(data);
-// })
-// // Catch errors
-// .catch(err => {
-//     console.log(err)
-// })
-
         
 startApp();
 // WHEN I start the application
